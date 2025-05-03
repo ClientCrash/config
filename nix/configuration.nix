@@ -26,6 +26,16 @@
   lxqt.lxqt-policykit
 ];
 
+  environment.sessionVariables = {
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    __GL_GSYNC_ALLOWED = "0";
+    __GL_VRR_ALLOWED = "0";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_EGL_NO_MODIFIERS = "1";
+  };
+
 
   users.users.noah = {
     isNormalUser = true;
@@ -37,7 +47,7 @@
   hardware.opengl.enable = true;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.open = true;
+  hardware.nvidia.open = false;
   services.xserver.videoDrivers = [ "nvidia" ];
   security.polkit.enable = true;
 
