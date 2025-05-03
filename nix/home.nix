@@ -75,6 +75,10 @@
     theme.name = "Catppuccin-Mocha-Compact-Lavender-Dark";
     iconTheme.name = "Papirus-Dark";
   };
+  gtk.cursorTheme = {
+  name = "catppuccin-mocha-dark-cursors";
+  size = 24; # or your preferred size
+};
 
   # Waybar config
 programs.waybar = {
@@ -128,7 +132,7 @@ programs.waybar = {
       gaps_out = 8
       border_size = 2
     }
-
+    env = XCURSOR_THEME, catppuccin-mocha-dark-cursors
     bind = SUPER, RETURN, exec, kitty
     bind = SUPER, Q, killactive,
     bind = SUPER, E, exec, xfce4-terminal
@@ -196,7 +200,7 @@ programs.waybar = {
     kitty
     hyprpaper
     catppuccin-gtk
-    catppuccin-cursors
+    catppuccin-cursors.mochaDark
     xfce.thunar
     rofi
     waybar
