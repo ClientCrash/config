@@ -22,6 +22,7 @@
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
+            home-manager.backupFileExtension = "backup_home_manager";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.noah = import ./home.nix;
