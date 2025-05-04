@@ -3,8 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
     nixvim.url = "github:nix-community/nixvim";
   };
@@ -13,6 +15,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+      src = builtins.path { path = ./.; };
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -22,11 +25,10 @@
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "backup_home_manager";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.noah = import ./home.nix;
             home-manager.extraSpecialArgs = { inherit inputs system; };
+            home-manager.users.noah = import ./home/default.nix;
           }
         ];
       };
