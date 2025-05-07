@@ -2,7 +2,7 @@
 (defpoll MINUTES :interval "1s" "date '+%M'")
 (defpoll PM_OR_AM :interval "1s" "date '+%p'")
 (defpoll DATE :interval "1s" "date '+%a, %b %d'")
-(defpoll CURRENT_WINDOW_TITLE :interval "1s" "hyprctl activewindow -j | jq -r .class")
+(defpoll CURRENT_WINDOW_TITLE :interval "1s" "hyprctl activewindow -j | jq -r '.title'")
 (defpoll WEATHER :interval "300s" "curl -s 'wttr.in/Bielefeld?format=1'")
 
 (defvar SWAP_TIME_DATE 0)
@@ -10,17 +10,17 @@
 
 (defwindow bottom_bar
   :monitor 1
-  :geometry (geometry :x "0px" :y "10px" :anchor "bottom center" :width "100%" :height "60px")
+  :geometry (geometry :x "0px" :y "10px" :anchor "bottom center" :width "100%" :height "40px")
   :stacking "fg"
   :exclusive true
-  (centerbox :orientation "h"
-  
-    ;; left bubble → weather
-    (box :halign "start" :class "bubble"
+  (centerbox :orientation "h" :space-evenly false
+
+    ;; left bubble → weather, with left padding
+    (box :halign "start" :margin "0px 0px 0px 20px" :class "bubble left-bubble"
       (label :text "${WEATHER}"))
-    
+
     ;; center bubble → time + date on hover
-    (eventbox :halign "center" 
+    (eventbox :halign "center"
               :onhover "eww update SWAP_TIME_DATE=1 TIME_ANIMATION='slidedown'"
               :onhoverlost "eww update SWAP_TIME_DATE=0 TIME_ANIMATION='slideup'"
       (button
@@ -30,8 +30,8 @@
               (label :markup "<span font-weight='heavy'>${HOUR == '' ? '--' : HOUR}:${MINUTES == '' ? '--' : MINUTES} <span font-size='xx-small'>${PM_OR_AM == '' ? '--' : PM_OR_AM}</span></span>"))
             (box :orientation "h" :halign "center" :valign "center"
               (label :markup "<span font-weight='light' font-size='small'>${DATE == '' ? '--' : DATE}</span>"))))))
-    
-    ;; right bubble → current window
-    (box :halign "end" :class "bubble"
+
+    ;; right bubble → current window title, with right padding
+    (box :halign "end" :margin "0px 20px 0px 0px" :class "bubble right-bubble"
       (label :text "${CURRENT_WINDOW_TITLE == '' ? 'No Window' : CURRENT_WINDOW_TITLE}"))
   ))
