@@ -4,13 +4,37 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "$directory $git_branch $character";
+      format = "$username$directory$git_branch$character";
       add_newline = false;
-      directory.style = "bold lavender";
-      git_branch.symbol = " ";
-      git_branch.style = "peach";
-      character.success_symbol = "[➜](green)";
-      character.error_symbol = "[➜](red)";
+
+      username = {
+        show_always = true;
+        style_user = "rosewater bold";
+        style_root = "red bold";
+        format = "[$user]($style) ";
+      };
+
+      directory = {
+        style = "bold lavender";
+        read_only = " ";
+        read_only_style = "peach";
+      };
+
+      git_branch = {
+        symbol = " ";
+        style = "peach";
+        format = "[$symbol$branch]($style) ";
+      };
+
+      character = {
+        success_symbol = "[➜](green)";
+        error_symbol = "[➜](red)";
+      };
+
+      git_status = {
+        format = "([$all_status$ahead_behind]($style))";
+        style = "maroon";
+      };
     };
   };
 }
