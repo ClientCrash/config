@@ -52,7 +52,6 @@
 
     exec-once = discord
     exec-once = firefox
-    exec-once = waybar &
     exec-once = mako &
     exec-once = nm-applet &
     exec-once = thunar --daemon &

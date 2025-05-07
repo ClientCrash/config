@@ -7,7 +7,6 @@
     ./nixvim.nix
     ./vscode.nix
     ./gtk.nix
-    ./waybar.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./kitty.nix
@@ -31,7 +30,6 @@
     catppuccin-cursors.mochaDark
     xfce.thunar
     rofi
-    waybar
     mako
     networkmanagerapplet
     starship
