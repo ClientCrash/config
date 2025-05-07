@@ -24,8 +24,8 @@
     bind = SUPER, F, fullscreen
     bind = SUPER, V, togglefloating
     bind = SUPER_SHIFT, R, exec, hyprctl reload
-    bind = SUPER_SHIFT, L, exec, hyprctl dispatch exit
-
+    bind = SUPER, M, exec, hyprctl dispatch exit
+    
     bind = SUPER, H, movefocus, l
     bind = SUPER, L, movefocus, r
     bind = SUPER, K, movefocus, u
@@ -36,6 +36,14 @@
     bind = SUPER_SHIFT, K, movewindow, u
     bind = SUPER_SHIFT, J, movewindow, d
 
+
+    # Super + Left‐click & drag → move (floating) window
+    bindm = SUPER, mouse:272, movewindow
+
+    # Super + Right‐click & drag → resize (floating) window
+    bindm = SUPER, mouse:273, resizewindow
+
+
     exec-once = discord
     exec-once = firefox
     exec-once = waybar &
@@ -44,10 +52,5 @@
     exec-once = thunar --daemon &
     exec-once = lxqt-policykit-agent &
     exec-once = hyprpaper
-
-    windowrulev2 = workspace 1, title:^(.*Discord.*)$
-    windowrulev2 = workspace 3, class:^(firefox|chromium|chrome)$
-
-    exec-once = hyprctl dispatch workspace 2
   '';
 }
