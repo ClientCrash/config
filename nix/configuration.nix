@@ -23,7 +23,7 @@
  environment.systemPackages = with pkgs; [
   wget curl vim git google-chrome discord vscode docker
   sudo gcc clang nodejs rustc cargo go openjdk jetbrains-toolbox
-  lxqt.lxqt-policykit tty-clock cbonsai gradle jq
+  lxqt.lxqt-policykit tty-clock cbonsai gradle jq atlauncher
 ];
 
   environment.sessionVariables = {

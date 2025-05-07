@@ -2,7 +2,7 @@
 (defpoll MINUTES :interval "1s" "date '+%M'")
 (defpoll PM_OR_AM :interval "1s" "date '+%p'")
 (defpoll DATE :interval "1s" "date '+%a, %b %d'")
-(defpoll CURRENT_WINDOW_TITLE :interval "1s" "hyprctl activewindow -j | jq -r '.title'")
+(defpoll CURRENT_WINDOW_TITLE :interval "1s" "hyprctl activewindow -j | jq -r '.class'")
 (defpoll WEATHER :interval "300s" "curl -s 'wttr.in/Bielefeld?format=1'")
 
 (defvar SWAP_TIME_DATE 0)
