@@ -23,22 +23,24 @@
   environment.systemPackages = with pkgs; [
     wget curl vim git google-chrome vscode docker
     sudo gcc clang nodejs rustc cargo go openjdk jetbrains-toolbox
-    lxqt.lxqt-policykit tty-clock cbonsai gradle jq atlauncher
+    lxqt.lxqt-policykit tty-clock cbonsai gradle jq atlauncher spotify
   ];
 
   environment.sessionVariables = {
-    GBM_BACKEND           = "nvidia-drm";
-    __GL_GSYNC_ALLOWED    = "0";
-    __GL_VRR_ALLOWED      = "0";
+    GBM_BACKEND             = "nvidia-drm";
+    __GL_GSYNC_ALLOWED      = "0";
+    __GL_VRR_ALLOWED        = "0";
     WLR_NO_HARDWARE_CURSORS = "1";
-    WLR_EGL_NO_MODIFIERS  = "1";
+    WLR_EGL_NO_MODIFIERS    = "1";
+
+    XDG_DATA_DIRS = pkgs.lib.mkForce "/var/lib/flatpak/exports/share:/home/noah/.local/share/flatpak/exports/share:/run/current-system/sw/share:/usr/local/share:/usr/share";
   };
 
   users.users.noah = {
-    isNormalUser = true;
-    extraGroups  = [ "wheel" "networkmanager" "docker" ];
+    isNormalUser    = true;
+    extraGroups     = [ "wheel" "networkmanager" "docker" ];
     initialPassword = "changeme";
-    shell = pkgs.fish;
+    shell           = pkgs.fish;
   };
 
   hardware.opengl.enable = true;
@@ -49,17 +51,18 @@
   security.polkit.enable = true;
 
   services.pipewire = {
-    enable           = true;
-    pulse.enable     = true;
-    alsa.enable      = true;
+    enable            = true;
+    pulse.enable      = true;
+    alsa.enable       = true;
     alsa.support32Bit = true;
   };
 
+  # Install the Flatpak CLI only
   services.flatpak.enable = true;
 
   services.xserver = {
-    enable                  = true;
-    displayManager.gdm.enable = true;
+    enable                     = true;
+    displayManager.gdm.enable  = true;
     desktopManager.gnome.enable = false;
   };
 
