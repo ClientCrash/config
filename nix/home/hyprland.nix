@@ -57,6 +57,6 @@
     exec-once = thunar --daemon &
     exec-once = lxqt-policykit-agent &
     exec-once = hyprpaper
-    exec-once = eww daemon && sleep 1 && eww open bar
+    exec-once = eww daemon && sleep 1 && eww open clock && eww open system && eww open network
   '';
 }
