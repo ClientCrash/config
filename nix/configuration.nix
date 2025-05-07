@@ -20,24 +20,23 @@
   programs.hyprland.enable = true;
   programs.fish.enable = true;
 
- environment.systemPackages = with pkgs; [
-  wget curl vim git google-chrome discord vscode docker
-  sudo gcc clang nodejs rustc cargo go openjdk jetbrains-toolbox
-  lxqt.lxqt-policykit tty-clock cbonsai gradle jq atlauncher
-];
+  environment.systemPackages = with pkgs; [
+    wget curl vim git google-chrome vscode docker
+    sudo gcc clang nodejs rustc cargo go openjdk jetbrains-toolbox
+    lxqt.lxqt-policykit tty-clock cbonsai gradle jq atlauncher
+  ];
 
   environment.sessionVariables = {
-    GBM_BACKEND = "nvidia-drm";
-    __GL_GSYNC_ALLOWED = "0";
-    __GL_VRR_ALLOWED = "0";
+    GBM_BACKEND           = "nvidia-drm";
+    __GL_GSYNC_ALLOWED    = "0";
+    __GL_VRR_ALLOWED      = "0";
     WLR_NO_HARDWARE_CURSORS = "1";
-    WLR_EGL_NO_MODIFIERS = "1";
+    WLR_EGL_NO_MODIFIERS  = "1";
   };
-
 
   users.users.noah = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
+    extraGroups  = [ "wheel" "networkmanager" "docker" ];
     initialPassword = "changeme";
     shell = pkgs.fish;
   };
@@ -49,17 +48,20 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   security.polkit.enable = true;
 
-
   services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
+    enable           = true;
+    pulse.enable     = true;
+    alsa.enable      = true;
     alsa.support32Bit = true;
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = false;
+  services.flatpak.enable = true;
+
+  services.xserver = {
+    enable                  = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = false;
+  };
 
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
