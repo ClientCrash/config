@@ -17,8 +17,8 @@
     ];
     profiles.default = {
       userSettings = {
-        "workbench.colorTheme" = "Catppuccin Latte";
-        "workbench.iconTheme" = "Catppuccin";
+        "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.iconTheme" = "Catppuccin Mocha";
         "editor.fontFamily" = "JetBrainsMono Nerd Font, monospace";
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
       };

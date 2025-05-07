@@ -24,13 +24,13 @@
       };
 
       window = { format = "{}"; max-length = 60; tooltip = false; };
-      network = { format-wifi = " {essid}"; format-ethernet = " {ifname}"; tooltip = true; };
-      pulseaudio = { format = " {volume}%"; tooltip = true; };
+      network = { format-wifi = "  {essid} "; format-ethernet = "  {ifname} "; tooltip = true; };
+      pulseaudio = { format = "  {volume}% "; tooltip = true; };
       battery = { format = "{capacity}% {icon}"; format-icons = ["" "" "" "" ""]; };
     }];
     style = builtins.readFile (pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/waybar/main/themes/latte.css";
-      sha256 = "104iz702xmviivrk8s7sp8izh545vwfyi3nvylch4fakm6wbs2qg";
+      url = "https://raw.githubusercontent.com/catppuccin/waybar/main/themes/mocha.css";
+      sha256 = "05yx7v4j9k1s1xanlak7yngqfwvxvylwxc2fhjcfha68rjbhbqx6";
     });
   };
 }
