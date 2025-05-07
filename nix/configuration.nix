@@ -23,7 +23,7 @@
  environment.systemPackages = with pkgs; [
   wget curl vim git google-chrome discord vscode docker
   sudo gcc clang nodejs rustc cargo go openjdk jetbrains-toolbox
-  lxqt.lxqt-policykit
+  lxqt.lxqt-policykit tty-clock cbonsai gradle
 ];
 
   environment.sessionVariables = {
@@ -59,7 +59,7 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
 
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";

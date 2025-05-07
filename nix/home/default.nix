@@ -7,6 +7,8 @@
     ./nixvim.nix
     ./vscode.nix
     ./gtk.nix
+    ./rofi.nix
+    ./eww.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./kitty.nix
@@ -35,6 +37,7 @@
     starship
     pfetch
     htop
+    eww
     neofetch
     noto-fonts-emoji
     nerd-fonts.jetbrains-mono
