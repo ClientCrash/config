@@ -8,8 +8,9 @@
 
 (defwindow clock
   :monitor 1
-  :geometry (geometry :x "20px" :y "30px" :anchor "top right")
+  :geometry (geometry :x "0px" :y "10px" :anchor "bottom center" :width "150px" :height "60px")
   :stacking "fg"
+  :exclusive true
   (eventbox :onhover "eww update SWAP_TIME_DATE=1 TIME_ANIMATION='slidedown'" 
             :onhoverlost "eww update SWAP_TIME_DATE=0 TIME_ANIMATION='slideup'"
     (button
