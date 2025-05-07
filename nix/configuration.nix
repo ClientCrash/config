@@ -19,12 +19,46 @@
   programs.git.enable = true;
   programs.hyprland.enable = true;
   programs.fish.enable = true;
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     wget curl vim git google-chrome vscode docker
     sudo gcc clang nodejs rustc cargo go openjdk jetbrains-toolbox
     lxqt.lxqt-policykit tty-clock cbonsai gradle jq atlauncher spotify
   ];
+
+
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    
+    xorg.libX11
+    xorg.libXext
+    xorg.libXrandr
+    xorg.libXcursor
+    xorg.libXxf86vm
+    xorg.libXi
+    xorg.libXinerama
+    xorg.libXrender
+    xorg.libXtst
+
+    # OpenGL
+    libGL
+
+    # Audio
+    alsa-lib
+    openal
+
+    # Image & font codecs
+    freetype
+    fontconfig
+    libpng
+    libjpeg_turbo
+    zlib
+    libvorbis
+  ];
+
+
+
 
   environment.sessionVariables = {
     GBM_BACKEND             = "nvidia-drm";
