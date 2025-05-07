@@ -4,7 +4,8 @@
   xdg.configFile."hypr/hyprland.conf".text = ''
     env = HYPRLAND_LOG_WLR, 1
     env = XCURSOR_THEME, catppuccin-mocha-dark-cursors
-
+    env = LIBVA_DRIVER_NAME,nvidia
+    env = __GLX_VENDOR_LIBRARY_NAME,nvidia
     general {
       col.active_border = rgba(89b4faee)
       col.inactive_border = rgba(1e1e2eee)
