@@ -22,6 +22,11 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     wget curl vim git google-chrome vscode docker
+    dbus
+    zlib.dev
+  dbus-glib
+  pkg-config
+  gnumake
     sudo gcc clang nodejs rustc cargo go openjdk jetbrains-toolbox
     lxqt.lxqt-policykit tty-clock cbonsai gradle jq atlauncher spotify
   ];
@@ -54,6 +59,8 @@
     libpng
     libjpeg_turbo
     zlib
+    dbus
+    dbus-glib
     libvorbis
   ];
 
