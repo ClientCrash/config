@@ -5,6 +5,6 @@
 
   programs.nixvim = {
     enable = true;
-    colorscheme = "catppuccin-mocha";
+    colorschemes.catppuccin.enable = true;
   };
 }
