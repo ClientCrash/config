@@ -41,11 +41,10 @@
     xorg.libXrandr
     xorg.libXcursor
     xorg.libXxf86vm
-    xorg.libXis
+    xorg.libXi
     xorg.libXinerama
     xorg.libXrender
     xorg.libXtst
-
 
     libGL
 
