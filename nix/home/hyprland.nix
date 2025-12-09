@@ -37,10 +37,8 @@
     bind = SUPER_SHIFT, J, movewindow, d
 
 
-    # Super + Left‐click & drag → move (floating) window
     bindm = SUPER, mouse:272, movewindow
 
-    # Super + Right‐click & drag → resize (floating) window
     bindm = SUPER, mouse:273, resizewindow
 
 

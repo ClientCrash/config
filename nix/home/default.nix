@@ -27,6 +27,7 @@
 
   home.packages = with pkgs; [
     kitty
+    hyprshot
     hyprpaper
     catppuccin-gtk
     catppuccin-cursors.mochaDark

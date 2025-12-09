@@ -41,19 +41,18 @@
     xorg.libXrandr
     xorg.libXcursor
     xorg.libXxf86vm
-    xorg.libXi
+    xorg.libXis
     xorg.libXinerama
     xorg.libXrender
     xorg.libXtst
 
-    # OpenGL
+
     libGL
 
-    # Audio
+
     alsa-lib
     openal
 
-    # Image & font codecs
     freetype
     fontconfig
     libpng
@@ -98,7 +97,6 @@
     alsa.support32Bit = true;
   };
 
-  # Install the Flatpak CLI only
   services.flatpak.enable = true;
 
   services.xserver = {
